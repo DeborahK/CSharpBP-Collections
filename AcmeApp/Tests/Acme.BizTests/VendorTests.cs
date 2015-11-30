@@ -63,7 +63,7 @@ namespace Acme.Biz.Tests
             // Arrange
             var vendor = new Vendor();
             var product = new Product(1, "Saw", "");
-            var expected = new OperationResult<bool>(true,
+            var expected = new OperationResult(true,
                 "Order from Acme, Inc\r\nProduct: Saw\r\nQuantity: 12" +
                                      "\r\nInstructions: standard delivery");
 
@@ -71,7 +71,7 @@ namespace Acme.Biz.Tests
             var actual = vendor.PlaceOrder(product, 12);
 
             // Assert
-            Assert.AreEqual(expected.Result, actual.Result);
+            Assert.AreEqual(expected.Success, actual.Success);
             Assert.AreEqual(expected.Message, actual.Message);
         }
         [TestMethod()]
@@ -80,7 +80,7 @@ namespace Acme.Biz.Tests
             // Arrange
             var vendor = new Vendor();
             var product = new Product(1, "Saw", "");
-            var expected = new OperationResult<bool>(true,
+            var expected = new OperationResult(true,
                 "Order from Acme, Inc\r\nProduct: Saw\r\nQuantity: 12" +
                 "\r\nDeliver By: 10/25/2018" +
                 "\r\nInstructions: standard delivery");
@@ -90,7 +90,7 @@ namespace Acme.Biz.Tests
                 new DateTimeOffset(2018, 10, 25, 0, 0, 0, new TimeSpan(-7, 0, 0)));
 
             // Assert
-            Assert.AreEqual(expected.Result, actual.Result);
+            Assert.AreEqual(expected.Success, actual.Success);
             Assert.AreEqual(expected.Message, actual.Message);
         }
 
@@ -114,7 +114,7 @@ namespace Acme.Biz.Tests
             // Arrange
             var vendor = new Vendor();
             var product = new Product(1, "Saw", "");
-            var expected = new OperationResult<bool>(true,
+            var expected = new OperationResult(true,
                         "Order from Acme, Inc\r\nProduct: Saw\r\nQuantity: 12" +
                         "\r\nInstructions: Deliver to Suite 42");
 
@@ -123,7 +123,7 @@ namespace Acme.Biz.Tests
                                 instructions: "Deliver to Suite 42");
 
             // Assert
-            Assert.AreEqual(expected.Result, actual.Result);
+            Assert.AreEqual(expected.Success, actual.Success);
             Assert.AreEqual(expected.Message, actual.Message);
         }
 

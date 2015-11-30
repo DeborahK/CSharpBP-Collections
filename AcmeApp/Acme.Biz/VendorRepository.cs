@@ -11,6 +11,7 @@ namespace Acme.Biz
         /// <summary>
         /// Retrieve one vendor.
         /// </summary>
+        /// <param name="vendorId">Id of the vendor to retrieve.</param>
         public Vendor Retrieve(int vendorId)
         {
             // Create the instance of the Vendor class
@@ -28,6 +29,11 @@ namespace Acme.Biz
             return vendor;
         }
 
+        /// <summary>
+        /// Save data for one vendor.
+        /// </summary>
+        /// <param name="vendor">Instance of the vendor to save.</param>
+        /// <returns></returns>
         public bool Save(Vendor vendor)
         {
             var success = true;

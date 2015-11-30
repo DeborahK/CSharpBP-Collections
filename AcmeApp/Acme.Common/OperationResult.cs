@@ -4,19 +4,19 @@
     /// Provides a success flag and message 
     /// useful as a method return type.
     /// </summary>
-    public class OperationResult<T> where T : struct
+    public class OperationResult
     {
         public OperationResult()
         {
         }
 
-        public OperationResult(T result, string message) : this()
+        public OperationResult(bool success, string message) : this()
         {
-            this.Result = result;
+            this.Success = success;
             this.Message = message;
         }
 
-        public T Result { get; set; }
+        public bool Success { get; set; }
         public string Message { get; set; }
     }
 

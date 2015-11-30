@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Acme.Biz
 {
     /// <summary>
-    /// Manages the vendors from whom we purchase our inventory.
+    /// Manages the approved vendors from whom Acme purchases our inventory.
     /// </summary>
     public class Vendor
     {
@@ -24,7 +24,7 @@ namespace Acme.Biz
         /// <param name="deliverBy">Requested delivery date.</param>
         /// <param name="instructions">Delivery instructions.</param>
         /// <returns></returns>
-        public OperationResult<bool> PlaceOrder(Product product, int quantity,
+        public OperationResult PlaceOrder(Product product, int quantity,
                                             DateTimeOffset? deliverBy = null,
                                             string instructions = "standard delivery")
         {
@@ -61,7 +61,7 @@ namespace Acme.Biz
             {
                 success = true;
             }
-            var operationResult = new OperationResult<bool>(success, orderText);
+            var operationResult = new OperationResult(success, orderText);
             return operationResult;
         }
 

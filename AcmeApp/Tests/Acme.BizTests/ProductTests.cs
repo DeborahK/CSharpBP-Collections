@@ -14,6 +14,21 @@ namespace Acme.Biz.Tests
     {
 
         [TestMethod()]
+        public void CalculateSuggestedPriceTest()
+        {
+            // Arrange
+            var currentProduct = new Product(1, "Saw", "");
+            currentProduct.Cost = 50m;
+            var expected = 55m;
+
+            // Act
+            var actual = currentProduct.CalculateSuggestedPrice(10m);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod()]
         public void Product_Null()
         {
             //Arrange
@@ -28,6 +43,7 @@ namespace Acme.Biz.Tests
             //Assert
             Assert.AreEqual(expected, actual);
         }
+
         [TestMethod()]
         public void ProductName_Format()
         {
@@ -43,6 +59,7 @@ namespace Acme.Biz.Tests
             //Assert
             Assert.AreEqual(expected, actual);
         }
+
         [TestMethod()]
         public void ProductName_TooShort()
         {
@@ -100,20 +117,5 @@ namespace Acme.Biz.Tests
             Assert.AreEqual(expectedMessage, actualMessage);
         }
 
-        [TestMethod()]
-        public void CalculateSuggestedPriceTest()
-        {
-            // Arrange
-            var currentProduct = new Product(1, "Saw", "");
-            currentProduct.Cost = 50m;
-            var expected = new OperationResult<decimal>(55m, "");
-
-            // Act
-            var actual = currentProduct.CalculateSuggestedPrice(10m);
-
-            // Assert
-            Assert.AreEqual(expected.Result, actual.Result);
-            Assert.AreEqual(expected.Message, actual.Message);
-        }
     }
 }

@@ -84,23 +84,8 @@ namespace Acme.Biz
         /// </summary>
         /// <param name="markupPercent">Percent used to mark up the cost.</param>
         /// <returns></returns>
-        public OperationResult<decimal> CalculateSuggestedPrice(decimal markupPercent)
-        {
-            var message = "";
-            if (markupPercent <= 0m)
-            {
-                message = "Invalid markup percentage";
-            }
-            else if (markupPercent < 10)
-            {
-                message = "Below recommended markup percentage";
-            }
-            var value = this.Cost + (this.Cost * markupPercent / 100);
-
-            //var operationResult = new OperationResult<decimal>(value, message);
-            var operationResult = new OperationResult<decimal>(value, message);
-            return operationResult;
-        }
+        public decimal CalculateSuggestedPrice(decimal markupPercent) =>
+             this.Cost + (this.Cost * markupPercent / 100);
 
         public override string ToString()
         {
