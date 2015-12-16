@@ -134,7 +134,7 @@ namespace Acme.Biz.Tests
             var vendor = new Vendor();
             vendor.VendorId = 1;
             vendor.CompanyName = "ABC Corp";
-            var expected = "Vendor: ABC Corp";
+            var expected = "Vendor: ABC Corp (1)";
 
             // Act
             var actual = vendor.ToString();

@@ -67,7 +67,7 @@ namespace Acme.Biz
 
         public override string ToString()
         {
-            return "Vendor: " + this.CompanyName;
+            return $"Vendor: {this.CompanyName} ({this.VendorId})";
         }
 
 
