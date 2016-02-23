@@ -82,7 +82,7 @@ namespace Acme.Biz.Tests
             var product = new Product(1, "Saw", "");
             var expected = new OperationResult(true,
                 "Order from Acme, Inc\r\nProduct: Saw\r\nQuantity: 12" +
-                "\r\nDeliver By: 10/25/2018" +
+                "\r\nDeliver By: " + new DateTime(2018,10,25).ToString("d") +
                 "\r\nInstructions: standard delivery");
 
             // Act
